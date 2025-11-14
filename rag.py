@@ -19,7 +19,7 @@ model1 = ChatHuggingFace(llm=llm1)
 yt_video_id = "Gfr50f6ZBvo"
 try:
 
-    # MUST PASS A LIST
+   
     ytt_api=YouTubeTranscriptApi()
     transcript_list=ytt_api.fetch(video_id=yt_video_id,languages=['en'])
 
@@ -42,7 +42,7 @@ embedding_model = HuggingFaceEmbeddings(
 vector_store=FAISS.from_documents(chunks,embedding_model)
 
 
-#print(vector_store.get_by_ids(['2d4676e2-7967-4a68-9761-ae6b9884018b']).page_content)
+
 ## retrival
 
 retriver=vector_store.as_retriever(search_type='similarity',search_kwargs={'k':4})
@@ -89,6 +89,9 @@ parser = StrOutputParser()
 main_chain = parallel_chain | prompt | model1 | parser
 
 print(main_chain.invoke('Can you summarize the video'))
+
+
+
 
 
 
