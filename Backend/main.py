@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from routers.transcript_routes import router as transcript_router
-from routers.index_routes import router as index_router
-from routers.query_routes import router as query_router
+from routes.transcript_routes import router as transcript_router
+from routes.index_routes import router as index_router
+from routes.query_routes import router as query_router
 
 app = FastAPI(title="YT Buddy Backend")
 
