@@ -5,13 +5,14 @@ from langchain_core.prompts import PromptTemplate
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint,HuggingFaceEmbeddings
 from dotenv import load_dotenv
 from langchain_core.output_parsers import StrOutputParser 
-from langchain_core.runnables import RunnableParallel
+from langchain_core.runnables import RunnableParallel,RunnablePassthrough,RunnableLambda
 
 load_dotenv()
 
 llm1 = HuggingFaceEndpoint(
     repo_id="google/gemma-2-2b-it",
-    task="text-generation"
+    task="text-generation",
+    temperature=0.2
 )
 model1 = ChatHuggingFace(llm=llm1)
 
@@ -40,10 +41,58 @@ embedding_model = HuggingFaceEmbeddings(
 )
 vector_store=FAISS.from_documents(chunks,embedding_model)
 
-print(vector_store.index_to_docstore_id)
+
+#print(vector_store.get_by_ids(['2d4676e2-7967-4a68-9761-ae6b9884018b']).page_content)
+## retrival
+
+retriver=vector_store.as_retriever(search_type='similarity',search_kwargs={'k':4})
 
 
-    
 
-    #
+## Augmentation
+
+prompt = PromptTemplate(
+    template="""
+      You are a helpful assistant.
+      Answer ONLY from the provided transcript context.
+      If the context is insufficient, just say you don't know.
+
+      {context}
+      Question: {question}
+    """,
+    input_variables = ['context', 'question']
+)
+question          = "is the topic of nuclear fusion discussed in this video? if yes then what was discussed"
+retrieved_docs    = retriver.invoke(question)
+#print(retrieved_docs)
+
+context_text = "\n\n".join(doc.page_content for doc in retrieved_docs)
+#print(context_text)
+
+final_prompt = prompt.invoke({"context": context_text, "question": question})
+#print(final_prompt)
+
+## generation
+answer=model1.invoke(final_prompt)
+#print(answer.content)
+
+def format_docs(retrieved_docs):
+  context_text = "\n\n".join(doc.page_content for doc in retrieved_docs)
+  return context_text
+
+parallel_chain = RunnableParallel({
+    'context': retriver | RunnableLambda(format_docs),
+    'question': RunnablePassthrough()
+})
+##print(parallel_chain.invoke('who is Demis'))
+parser = StrOutputParser()
+main_chain = parallel_chain | prompt | model1 | parser
+
+print(main_chain.invoke('Can you summarize the video'))
+
+
+
+
+
+
 
