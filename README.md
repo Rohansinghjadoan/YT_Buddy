@@ -68,14 +68,16 @@ Powered by **Google Gemini**, **LangChain**, **ChromaDB**, and **YouTube Transcr
 ## 🖼️ **Project Screenshots**
 
 ### 🟦 **Home Interface**
-
-<img width="100%" alt="Screenshot 1" src="https://github.com/user-attachments/assets/3848449d-458f-4b35-9ce2-b5a17f77869e" />
+<img width="100%" alt="Screenshot 3" src="https://github.com/user-attachments/assets/fccf6b28-d325-45b2-828f-19301cd370f1" />
 
 ---
 
 ### 🟩 **Notes & Important Topics**
 
-<img width="100%" alt="Screenshot 3" src="https://github.com/user-attachments/assets/fccf6b28-d325-45b2-828f-19301cd370f1" />
+<img width="1920" height="1080" alt="Screenshot from 2025-11-19 04-38-53" src="https://github.com/user-attachments/assets/a98485d4-0af4-4ae0-9881-4d386674b564" />
+
+
+
 
 ---
 
