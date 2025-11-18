@@ -1,21 +1,26 @@
 streamlit
 python-dotenv
-requests
-gtts
-
-# YouTube transcript
 youtube-transcript-api==1.2.2
 
-# LangChain (latest stable versions)
+# LangChain core packages
 langchain==0.2.12
 langchain-community==0.2.12
-langchain-google-genai==0.1.5
-langchain-chroma==0.1.4
+langchain-core==0.2.12
 
-# Google GenAI SDK
-google-generativeai==0.5.2
+# Google Gemini via LangChain (correct new package)
+langchain-google-genai==1.0.5
 
-# Text splitting, embeddings, utils
+# Embeddings
+langchain-huggingface
 sentence-transformers
+
+# Vector store
+chromadb==0.5.5
+langchain-chroma==0.1.3
+
+# Google Gemini SDK (optional but useful)
+google-generativeai
+
+# Other utilities
+requests
 pypdf
-rapidocr-onnxruntime
