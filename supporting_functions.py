@@ -4,11 +4,14 @@ import re
 import streamlit as st 
 from youtube_transcript_api import YouTubeTranscriptApi
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
+
 from langchain_chroma import Chroma
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
+import uuid
 
 load_dotenv()
 
@@ -128,9 +131,26 @@ def create_chunks(transcript):
 
 # function to create embedding and store it into an vector space.
 def create_vector_store(docs):
-    embedding= GoogleGenerativeAIEmbeddings(model="models/embedding-001", transport="grpc" )
-    vector_store= Chroma.from_documents(docs, embedding)
+
+    # Use FREE embeddings instead of Google embeddings
+    embedding = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    )
+
+    # Generate IDs for each document
+    ids = [str(uuid.uuid4()) for _ in docs]
+
+    # Create vectorstore
+    vector_store = Chroma.from_documents(
+        documents=docs,
+        embedding=embedding,
+        ids=ids,
+        persist_directory="chroma_db"
+        
+    )
+
     return vector_store
+
 
 
 #RAG FUNCTION
