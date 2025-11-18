@@ -74,7 +74,8 @@ Powered by **Google Gemini**, **LangChain**, **ChromaDB**, and **YouTube Transcr
 
 ### 🟩 **Notes & Important Topics**
 
-<img width="1920" height="1080" alt="Screenshot from 2025-11-19 04-38-53" src="https://github.com/user-attachments/assets/a98485d4-0af4-4ae0-9881-4d386674b564" />
+<img width="1920" height="1080" alt="yt_buudy" src="https://github.com/user-attachments/assets/5cdfab04-c7a5-4bc6-a032-583e04ca9b97" />
+
 
 
 
