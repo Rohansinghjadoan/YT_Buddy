@@ -63,3 +63,8 @@ ChromaDB
 YouTube Transcript API
 
 📂 Project Structure
+
+
+<img width="1920" height="1080" alt="Screenshot from 2025-11-19 04-38-53" src="https://github.com/user-attachments/assets/3848449d-458f-4b35-9ce2-b5a17f77869e" />
+<img width="1920" height="1080" alt="Screenshot from 2025-11-19 04-38-53" src="https://github.com/user-attachments/assets/3abc2253-4c48-4c66-9e48-7d8629d5411a" />
+<img width="1920" height="1080" alt="Screenshot from 2025-11-19 04-36-09" src="https://github.com/user-attachments/assets/fccf6b28-d325-45b2-828f-19301cd370f1" />
