@@ -165,12 +165,3 @@ AI/ML Developer • Python • Deep Learning
 
 Don’t forget to **star** ⭐ the repo — it helps!
 
----
-
-If you want, I can also add:
-✅ Badges (Python, stars, forks, license)
-✅ Live Demo Link section
-✅ Contribution Guidelines
-✅ Feature Roadmap
-
-Just tell me!
