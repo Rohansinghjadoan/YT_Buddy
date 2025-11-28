@@ -163,5 +163,5 @@ AI/ML Developer • Python • Deep Learning
 
 ## ⭐ **Like the project?**
 
-Don’t forget to **star** ⭐ the repo — it helps!
+Don’t forget to **star** ⭐ the repo — it helps !
 
